@@ -22,12 +22,16 @@ Then open your browser at **http://localhost:3000**. The page will live-update a
 
 Each proposal is a fullscreen, scroll-snap presentation — one slide per section. You scroll down to advance.
 
+**REGOLA FISSA: ogni nuovo preventivo va creato in `app/proposals/<nome-azienda-nuova>/`** — sempre dentro `app/proposals/`, mai alla radice di `app/`. L'URL risultante è `/proposals/<nome-azienda-nuova>`.
+
 Every proposal lives at:
 ```
-app/proposals/[nome-cliente]/
+app/proposals/<nome-azienda-nuova>/
   page.tsx          ← puts the slides in order
   sections/         ← one file per slide
 ```
+
+Esempi: `app/proposals/aria-janas/` → `/proposals/aria-janas`, `app/proposals/CF7SP/` → `/proposals/CF7SP`.
 
 ---
 
