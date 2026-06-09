@@ -17,6 +17,7 @@ export default function AriaJanasProposal() {
     <>
       <style>{`
         html, body { height: 100%; overflow: hidden; margin: 0; }
+        @media print { html, body { height: auto; overflow: visible; } main { height: auto; overflow: visible; scroll-snap-type: none; } section { page-break-after: always; height: 100vh; } }
       `}</style>
 
       <main

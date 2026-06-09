@@ -9,16 +9,17 @@ export function QuelloCheSiamoVisto() {
       {/* Left: text */}
       <div className="w-1/2 bg-white flex flex-col justify-start pt-24 px-16">
         <p className="label-section mb-8">Quello che abbiamo visto</p>
-        <h2 className="heading-display max-w-lg">
-          Centro Sportivo Settimo merita una presenza all'altezza di quello che avete costruito.
-        </h2>
+        <div className="max-w-lg space-y-12">
+          <p className="heading-display">Centro Fitness offre un servizio super valido…</p>
+          <p className="heading-display">Se foste i più seguiti a Cagliari, cosa succederebbe?</p>
+        </div>
       </div>
 
       {/* Right: image */}
       <div className="w-1/2 relative">
         <Image
-          src="/wine-service.jpeg"
-          alt=""
+          src="/cf7sp-fitness-education.png"
+          alt="CF7SP — Fitness Education"
           fill
           className="object-cover"
         />

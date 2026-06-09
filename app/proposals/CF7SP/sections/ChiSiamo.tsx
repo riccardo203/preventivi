@@ -6,6 +6,7 @@ const TEAM = [
   { name: "Jonny Mason",       role: "Social Media Strategist", src: "/founder-portraits/jonny.jpeg",     objectPosition: "center 15%" },
   { name: "Camillo Lai",       role: "Media Buyer",             src: "/founder-portraits/camillo.jpeg",   objectPosition: "center top" },
   { name: "Gianmarco Milani",  role: "Videomaker & Editor",     src: "/founder-portraits/gianmarco.png", objectPosition: "center 15%" },
+  { name: "Cristian Musiu",    role: "Fotografo",               src: "/founder-portraits/cristian.png",  objectPosition: "center top" },
 ]
 
 export function ChiSiamo() {
@@ -28,7 +29,7 @@ export function ChiSiamo() {
       </div>
 
       {/* Portrait row — square cards */}
-      <div className="grid grid-cols-5 gap-3">
+      <div className="grid grid-cols-6 gap-3">
         {TEAM.map((person) => (
           <div key={person.name}>
             <div className="aspect-square relative overflow-hidden rounded-xl bg-[#d4d4d8]">
@@ -37,7 +38,12 @@ export function ChiSiamo() {
                   src={person.src}
                   alt={person.name}
                   fill
-                  style={{ objectFit: "cover", objectPosition: person.objectPosition }}
+                  style={{
+                    objectFit: "cover",
+                    objectPosition: person.objectPosition,
+                    transform: person.scale ? `scale(${person.scale})` : undefined,
+                    transformOrigin: person.objectPosition,
+                  }}
                 />
               )}
               <div

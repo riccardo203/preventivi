@@ -13,3 +13,6 @@ out/
 # misc
 .DS_Store
 *.pem
+
+# generated PDF artifacts (rigenerabili con generate-pdf.mjs)
+/Centro-Sportivo-Settimo.pdf

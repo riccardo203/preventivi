@@ -25,17 +25,14 @@ export function Cover() {
           />
 
           <div className="flex-1 flex flex-col justify-center">
-            <p className="text-xs uppercase tracking-[0.22em] text-white font-medium mb-8">
-              Una proposta di partnership
-            </p>
             <h1
               className="font-light text-white leading-none"
-              style={{ fontSize: "clamp(4rem, 10vw, 7rem)", letterSpacing: "-0.02em" }}
+              style={{ fontSize: "clamp(4rem, 10vw, 7rem)", letterSpacing: "-0.02em", marginLeft: "-0.09em" }}
             >
-              Centro Sportivo Settimo (pisello)
+              Centro Fitness
             </h1>
-            <p className="text-white text-lg font-light mt-6">
-              Villasimius · Sardegna
+            <p className="text-white text-lg font-bold mt-6">
+              Una proposta di partnership
             </p>
           </div>
 
