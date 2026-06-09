@@ -32,7 +32,7 @@ export function Cover() {
               className="font-light text-white leading-none"
               style={{ fontSize: "clamp(4rem, 10vw, 7rem)", letterSpacing: "-0.02em" }}
             >
-              Centro Sportivo Settimo
+              Centro Sportivo Settimo (pisello)
             </h1>
             <p className="text-white text-lg font-light mt-6">
               Villasimius · Sardegna
