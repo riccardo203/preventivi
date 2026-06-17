@@ -1,4 +1,5 @@
 import { Cover } from "./sections/Cover"
+import { ChiSiamoRivon } from "./sections/ChiSiamoRivon"
 import { ChiSiamo } from "./sections/ChiSiamo"
 import { QuelloCheSiamoVisto } from "./sections/QuelloCheSiamoVisto"
 import { LaGrandeDomanda } from "./sections/LaGrandeDomanda"
@@ -28,6 +29,7 @@ export default function TemplateProposal() {
         style={{ scrollSnapType: "y mandatory" }}
       >
         <Cover />
+        <ChiSiamoRivon />
         <ChiSiamo />
         <QuelloCheSiamoVisto />
         <LaGrandeDomanda />
