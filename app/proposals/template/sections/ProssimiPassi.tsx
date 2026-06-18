@@ -40,7 +40,7 @@ export function ProssimiPassi() {
       </div>
 
       <div className="flex items-center gap-5">
-        <Image src="/omira-logo-new.png" alt="Omira" width={80} height={27} />
+        <Image src="/omira-logo-new.png" alt="Omira" width={80} height={27} className="brightness-0" />
         <div className="w-px h-5 bg-border" />
         <p className="text-text-muted text-sm">hello@byrivon.com</p>
       </div>

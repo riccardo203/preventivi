@@ -21,7 +21,13 @@ export default function TemplateProposal() {
     <>
       <style>{`
         html, body { height: 100%; overflow: hidden; margin: 0; }
-        @media print { html, body { height: auto; overflow: visible; } main { height: auto; overflow: visible; scroll-snap-type: none; } section { page-break-after: always; height: 100vh; } }
+        @media print {
+          @page { margin: 0; size: A4 landscape; }
+          *, *::before, *::after { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+          html, body { height: auto; overflow: visible; }
+          main { height: auto; overflow: visible; scroll-snap-type: none !important; }
+          section { break-after: page; page-break-after: always; height: 100vh; min-height: 100vh; overflow: hidden; }
+        }
       `}</style>
 
       <main

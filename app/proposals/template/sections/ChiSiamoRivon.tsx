@@ -2,6 +2,7 @@
 
 import Image from "next/image"
 import { useRef, useEffect, useState } from "react"
+import { flushSync } from "react-dom"
 import { Smartphone, Sparkles } from "lucide-react"
 
 type Line = { x1: number; y1: number; x2: number; y2: number }
@@ -15,28 +16,41 @@ export function ChiSiamoRivon() {
   const [lines, setLines] = useState<Line[]>([])
 
   useEffect(() => {
-    const update = () => {
+    const computeLines = (): Line[] => {
       const section = sectionRef.current
       const rivon = rivonRef.current
       const branches = [b1Ref.current, b2Ref.current, b3Ref.current]
-      if (!section || !rivon || branches.some((b) => !b)) return
+      if (!section || !rivon || branches.some((b) => !b)) return []
 
       const sr = section.getBoundingClientRect()
       const rr = rivon.getBoundingClientRect()
-      const x1 = rr.left + rr.width / 2 - sr.left
-      const y1 = rr.bottom - sr.top + 18
+      const x1 = ((rr.left + rr.width / 2 - sr.left) / sr.width) * 100
+      const y1 = ((rr.bottom - sr.top + 18) / sr.height) * 100
 
-      setLines(
-        branches.map((el) => {
-          const br = el!.getBoundingClientRect()
-          return { x1, y1, x2: br.left + br.width / 2 - sr.left, y2: br.top - sr.top - 8 }
-        })
-      )
+      return branches.map((el) => {
+        const br = el!.getBoundingClientRect()
+        return {
+          x1, y1,
+          x2: ((br.left + br.width / 2 - sr.left) / sr.width) * 100,
+          y2: ((br.top - sr.top - 8) / sr.height) * 100,
+        }
+      })
     }
+
+    const update = () => setLines(computeLines())
+    const updateSync = () => flushSync(() => setLines(computeLines()))
+
+    const mql = window.matchMedia("print")
+    const handlePrintChange = () => updateSync()
 
     update()
     window.addEventListener("resize", update)
-    return () => window.removeEventListener("resize", update)
+    mql.addEventListener("change", handlePrintChange)
+
+    return () => {
+      window.removeEventListener("resize", update)
+      mql.removeEventListener("change", handlePrintChange)
+    }
   }, [])
 
   return (
@@ -45,7 +59,12 @@ export function ChiSiamoRivon() {
       className="h-screen bg-white relative flex flex-col px-16 pt-16 pb-14"
       style={{ scrollSnapAlign: "start", scrollSnapStop: "always" }}
     >
-      <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ zIndex: 1 }}>
+      <svg
+        className="absolute inset-0 w-full h-full pointer-events-none"
+        viewBox="0 0 100 100"
+        preserveAspectRatio="none"
+        style={{ zIndex: 1 }}
+      >
         {lines.map((l, i) => (
           <path
             key={i}
@@ -53,19 +72,20 @@ export function ChiSiamoRivon() {
             fill="none"
             stroke="#d4d4d8"
             strokeWidth="1.5"
+            vectorEffect="non-scaling-stroke"
           />
         ))}
       </svg>
 
-      <div className="relative flex flex-col flex-1 min-h-0" style={{ zIndex: 2 }}>
+      <div className="relative flex flex-col flex-1 min-h-0 justify-between" style={{ zIndex: 2 }}>
         {/* Slide header */}
-        <div className="mb-10">
+        <div>
           <p className="label-section mb-3">Chi siamo</p>
           <h2 className="heading-display">Diversi progetti, tutti by Rivon.</h2>
         </div>
 
         {/* Rivon node */}
-        <div className="flex justify-center my-16">
+        <div className="flex justify-center">
           <div ref={rivonRef} className="flex flex-col items-center text-center">
             <div className="relative w-48 h-14 mb-4">
               <Image src="/rivon-logo-dark.png" alt="Rivon" fill className="object-contain" />
@@ -79,7 +99,7 @@ export function ChiSiamoRivon() {
         </div>
 
         {/* Three branches */}
-        <div className="grid grid-cols-3 gap-8 mt-6">
+        <div className="grid grid-cols-3 gap-8">
           {/* Omira */}
           <div ref={b1Ref} className="flex flex-col items-center text-center">
             <div className="relative w-36 h-10 mb-4">

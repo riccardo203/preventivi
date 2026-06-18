@@ -20,11 +20,11 @@ const PEOPLE: Person[] = [
   { id: "p1", name: "Mauro Moi", brand: "Foodora", photo: "/people/mauro-moi.png", x: 11, y: 19 },
   { id: "p2", name: "Cristina Schirru", brand: "Solisera", photo: "/people/cristina-schirru.png", x: 31, y: 18 },
   { id: "p3", name: "Giuseppe Manca", brand: "Credipass", photo: "/people/giuseppe-manca.png", x: 9, y: 55 },
-  { id: "p4", name: "Andrea Cartamantiglia", brand: "Inkiostro", photo: "/people/andrea-cartamantiglia.png", x: 25, y: 84 },
+  { id: "p4", name: "Andrea Cartamantiglia", brand: "Inkiostro", photo: "/people/andrea-cartamantiglia.png", x: 25, y: 73 },
   { id: "p5", name: "Fabrizio Mascia", brand: "Autostyle", photo: "/people/fabrizio-mascia.png", x: 70, y: 18 },
   { id: "p6", name: "Matteo Cuscusa", brand: "Transumanza", photo: "/people/matteo-cuscusa.png", x: 91, y: 33 },
-  { id: "p7", name: "Marta Susnik", brand: "Studio Dentistico Susnik", photo: "/people/marta-susnik.png", x: 82, y: 81 },
-  { id: "p8", name: "Mariano Mascia", brand: "i 4 Mori", photo: "/people/mariano-mascia.png", x: 56, y: 87 },
+  { id: "p7", name: "Marta Susnik", brand: "Studio Dentistico Susnik", photo: "/people/marta-susnik.png", x: 82, y: 76 },
+  { id: "p8", name: "Mariano Mascia", brand: "i 4 Mori", photo: "/people/mariano-mascia.png", x: 56, y: 75 },
 ]
 
 export function PersonePrimaDiBrand() {
