@@ -3,7 +3,7 @@
 import Image from "next/image"
 import { useRef, useEffect, useState } from "react"
 import { flushSync } from "react-dom"
-import { Smartphone, Sparkles } from "lucide-react"
+import { Sparkles } from "lucide-react"
 
 type Line = { x1: number; y1: number; x2: number; y2: number }
 
@@ -77,7 +77,7 @@ export function ChiSiamoRivon() {
         ))}
       </svg>
 
-      <div className="relative flex flex-col flex-1 min-h-0 justify-between" style={{ zIndex: 2 }}>
+      <div className="relative flex flex-col flex-1 min-h-0 justify-between pb-16" style={{ zIndex: 2 }}>
         {/* Slide header */}
         <div>
           <p className="label-section mb-3">Chi siamo</p>
@@ -115,8 +115,10 @@ export function ChiSiamoRivon() {
           {/* Mobile Apps */}
           <div ref={b2Ref} className="flex flex-col items-center text-center">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-11 h-11 rounded-xl bg-[#1a1a2e] flex items-center justify-center flex-shrink-0">
-                <Smartphone className="w-5 h-5 text-white" strokeWidth={1.5} />
+              {/* Two stacked app icon cards — replace bg colours with actual app icons when available */}
+              <div className="relative flex-shrink-0" style={{ width: 54, height: 54 }}>
+                <div className="absolute w-10 h-10 rounded-xl" style={{ background: "#6366F1", top: 0, right: 0, transform: "rotate(10deg)" }} />
+                <div className="absolute w-10 h-10 rounded-xl" style={{ background: "#1a1a2e", bottom: 0, left: 0 }} />
               </div>
               <p className="text-base font-semibold text-text-primary">Mobile Apps</p>
             </div>

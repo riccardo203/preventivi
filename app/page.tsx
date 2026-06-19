@@ -5,6 +5,7 @@ export const metadata = {
 }
 
 const proposals = [
+  { slug: "template", name: "Template" },
   { slug: "aria-janas", name: "Aria Janas" },
   { slug: "CF7SP", name: "Centro Sportivo Settimo" },
 ]
