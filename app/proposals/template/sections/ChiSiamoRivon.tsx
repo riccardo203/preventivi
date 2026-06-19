@@ -115,10 +115,13 @@ export function ChiSiamoRivon() {
           {/* Mobile Apps */}
           <div ref={b2Ref} className="flex flex-col items-center text-center">
             <div className="flex items-center gap-3 mb-4">
-              {/* Two stacked app icon cards — replace bg colours with actual app icons when available */}
               <div className="relative flex-shrink-0" style={{ width: 54, height: 54 }}>
-                <div className="absolute w-10 h-10 rounded-xl" style={{ background: "#6366F1", top: 0, right: 0, transform: "rotate(10deg)" }} />
-                <div className="absolute w-10 h-10 rounded-xl" style={{ background: "#1a1a2e", bottom: 0, left: 0 }} />
+                <div className="absolute w-10 h-10 rounded-xl overflow-hidden" style={{ top: 0, right: 0, transform: "rotate(10deg)" }}>
+                  <Image src="/app-icons/wakey.png" alt="Wakey" fill className="object-cover" />
+                </div>
+                <div className="absolute w-10 h-10 rounded-xl overflow-hidden" style={{ bottom: 0, left: 0 }}>
+                  <Image src="/app-icons/picky.png" alt="Picky" fill className="object-cover" />
+                </div>
               </div>
               <p className="text-base font-semibold text-text-primary">Mobile Apps</p>
             </div>
