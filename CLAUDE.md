@@ -2,7 +2,11 @@
 
 ## What this is
 
-A Next.js 15 App Router project that generates fullscreen, scroll-snap commercial proposals (preventivi) for Omira clients. Each proposal is a vertical presentation — one `h-screen` section per slide, `scrollSnapType: y mandatory`. PDF export is handled via `@media print` overrides already in place.
+This is **Omira's proposal builder** — a tool for creating and presenting commercial proposals (preventivi) to potential clients. Each proposal is a beautiful fullscreen presentation that lives at a URL and can also be exported as a PDF.
+
+The idea: instead of sending a PDF attachment, Riccardo can send a client a direct link to their personalised proposal. The client scrolls through it like a website. When a PDF is needed, the browser print function exports it cleanly.
+
+Technically: a Next.js 15 App Router project. Each proposal is a vertical scroll-snap presentation — one `h-screen` section per slide, `scrollSnapType: y mandatory`. PDF export is handled via `@media print` overrides already in place.
 
 This project is used by Riccardo Carboni (non-technical, sales). He will give instructions in natural Italian. Your job is to translate those into precise code changes.
 
@@ -61,7 +65,7 @@ Steps:
 1. Copy the entire `template/` folder to `app/proposals/<slug>/`
 2. Update `page.tsx` metadata: `title`, function name
 3. Update every slide with client-specific content (see per-slide notes below)
-4. Add a link on `app/page.tsx` if one exists
+4. **Always add the new proposal to `app/page.tsx`** — this is the homepage that lists all proposals. Add an entry to the `proposals` array: `{ slug: "<slug>", name: "<Client Name>" }`. Without this step the proposal exists but is not reachable from the home screen.
 
 **Naming convention:** slug is lowercase, hyphenated. E.g. `pizzeria-mario`, `hotel-del-golfo`.
 
