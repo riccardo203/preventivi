@@ -8,6 +8,7 @@ const proposals = [
   { slug: "template", name: "Template" },
   { slug: "aria-janas", name: "Aria Janas" },
   { slug: "CF7SP", name: "Centro Sportivo Settimo" },
+  { slug: "pentagono-village", name: "Pentagono Village" },
 ]
 
 export default function Home() {
