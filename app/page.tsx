@@ -9,6 +9,7 @@ const proposals = [
   { slug: "aria-janas", name: "Aria Janas" },
   { slug: "CF7SP", name: "Centro Sportivo Settimo" },
   { slug: "pentagono-village", name: "Pentagono Village" },
+  { slug: "gelateria-il-capriccio", name: "Gelateria Il Capriccio" },
 ]
 
 export default function Home() {
